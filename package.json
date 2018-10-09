@@ -1,0 +1,70 @@
+{
+  "name": "cockatoo.js",
+  "version": "0.0.7",
+  "description": "Fuzzy search library based based on Damerau Levenshtein distance algorithm for Node.js",
+  "main": "./dist/index.js",
+  "jest": {
+    "roots": [
+      "<rootDir>"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json"
+    ],
+    "testEnvironment": "node",
+    "testEnvironmentOptions": {
+      "NODE_ENV": "test"
+    }
+  },
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "clean": "rimraf dist",
+    "prebuild": "npm run clean",
+    "build": "tsc",
+    "test": "jest --verbose"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/selarep/cockatoojs.git"
+  },
+  "keywords": [
+    "fuzzy",
+    "search",
+    "weight",
+    "cockatoo",
+    "cockatoo.js",
+    "fuzzysearch",
+    "fuzzy-search",
+    "weightsearch",
+    "weight-search",
+    "weighted search"
+  ],
+  "author": {
+    "name": "Javier Perales Gran",
+    "email": "jperalesteleco@gmail.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/selarep/cockatoojs/issues"
+  },
+  "homepage": "https://github.com/selarep/cockatoojs#readme",
+  "devDependencies": {
+    "@types/bluebird": "^3.5.24",
+    "@types/jest": "^23.0.2",
+    "@types/lodash": "^4.14.109",
+    "@types/node": "^10.11.3",
+    "jest": "^23.1.0",
+    "rimraf": "^2.6.2",
+    "ts-jest": "^22.4.6",
+    "typescript": "^2.9.1"
+  },
+  "dependencies": {
+    "bluebird": "^3.5.2"
+  }
+}

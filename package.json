@@ -1,6 +1,6 @@
 {
   "name": "cockatoo.js",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Fuzzy search library based based on Damerau Levenshtein distance algorithm for Node.js",
   "main": "./dist/index.js",
   "jest": {
@@ -31,7 +31,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/selarep/cockatoojs.git"
+    "url": "git+https://github.com/selarep/cockatoo.js.git"
   },
   "keywords": [
     "fuzzy",

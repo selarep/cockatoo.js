@@ -1,6 +1,6 @@
 {
   "name": "cockatoo.js",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Fuzzy search library based based on Damerau Levenshtein distance algorithm for Node.js",
   "main": "./dist/index.js",
   "jest": {
@@ -55,13 +55,13 @@
   },
   "homepage": "https://github.com/selarep/cockatoojs#readme",
   "devDependencies": {
-    "@types/jest": "^23.0.2",
-    "@types/lodash": "^4.14.109",
-    "@types/node": "^10.11.3",
-    "jest": "^23.1.0",
+    "@types/jest": "^23.3.9",
+    "@types/lodash": "^4.14.117",
+    "@types/node": "^10.12.2",
+    "jest": "^23.6.0",
     "rimraf": "^2.6.2",
-    "ts-jest": "^22.4.6",
-    "typescript": "^2.9.1"
+    "ts-jest": "^23.10.4",
+    "typescript": "^2.9.2"
   },
   "dependencies": {}
 }

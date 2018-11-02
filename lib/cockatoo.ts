@@ -51,8 +51,9 @@ export class Cockatoo<T> {
       return [];
     }
 
-    // If there is result in cache, return it
+    // If there is result in cache, update date and return it
     if (this.cache[searchText]) {
+      this.cache[searchText].date = new Date();
       return this.cache[searchText].results;
     }
 

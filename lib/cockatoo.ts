@@ -45,7 +45,7 @@ export class Cockatoo<T> {
     }
   }
 
-  async search(searchText: string): Promise<Match<T>[]> {
+  async search(searchText: string, filter?: (element: T) => boolean): Promise<Match<T>[]> {
     // If search text is empty, return []
     if (searchText.length === 0) {
       return [];
@@ -54,7 +54,13 @@ export class Cockatoo<T> {
     // If there is result in cache, update date and return it
     if (this.cache[searchText]) {
       this.cache[searchText].date = new Date();
-      return this.cache[searchText].results;
+      if (filter !== undefined) {
+        return this.cache[searchText].results.filter(match => {
+          return filter(match.item);
+        });
+      } else {
+        return this.cache[searchText].results;
+      }      
     }
 
     const originalSearchText = searchText;
@@ -63,9 +69,27 @@ export class Cockatoo<T> {
     const originalSearchTextTokens = this.getTokensFromText(originalSearchText);
     let matches: Match<T>[] = [];
     const promises: Promise<void>[] = [];
-    for (let i = 0; i < this.searchableValuesList.length; i++) {
+    let searchableIndexes: number[];
+    if (filter !== undefined) {
+      searchableIndexes = this.elementsList
+      .map((value, index) => {
+        return {index, value};
+      })
+      .filter(({value}) => {
+        return filter(value);
+      })
+      .map(({index}) => {
+        return index;
+      });
+    } else {
+      searchableIndexes = this.elementsList
+      .map((value, index) => {
+        return index;
+      });
+    }
+    for (let i = 0; i < searchableIndexes.length; i++) {
       promises.push(
-        this.getMatch(searchText, searchTextTokens, originalSearchTextTokens, i)
+        this.getMatch(searchText, searchTextTokens, originalSearchTextTokens, searchableIndexes[i])
         .then(match => {
           if (match !== undefined) {
             matches.push(match);
